@@ -2,8 +2,10 @@
 set -e
 
 PROJECT_ID=$1
-echo "PROJECT_ID is: $PROJECT_ID"
-pwd
-ls -larth functions
+FIREBASE_TOKEN=$2
 
-firebase deploy --only functions:retryOrder,functions:processCancelPayment,functions:processCustomerSignature
+echo "setting firebase project to $PROJECT_ID"
+firebase use --add "$PROJECT_ID"
+
+echo "deploying functions $PROJECT_ID"
+firebase deploy --only functions:retryOrder,functions:processCancelPayment --token $FIREBASE_TOKEN
