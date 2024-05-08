@@ -5,6 +5,9 @@ inputs:
   PROJECT_ID:
     description: firebase project id
     required: true
+  FIREBASE_TOKEN:
+    description: firebase token
+    required: true
 
 runs:
   using: 'docker'
