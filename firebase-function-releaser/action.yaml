@@ -1,0 +1,14 @@
+name: firebase-function-releaser
+description: Build and Release firebase function
+
+inputs:
+  PROJECT_ID:
+    description: firebase project id
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.PROJECT_ID }}
+
